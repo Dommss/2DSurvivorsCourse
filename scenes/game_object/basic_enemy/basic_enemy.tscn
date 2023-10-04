@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxrctd0t8c87u"]
+[gd_scene load_steps=7 format=3 uid="uid://bxrctd0t8c87u"]
 
 [ext_resource type="Script" path="res://scenes/game_object/basic_enemy/basic_enemy.gd" id="1_4ohv3"]
 [ext_resource type="Texture2D" uid="uid://c0ncfcv3wbgi7" path="res://scenes/game_object/basic_enemy/basic_enemy.png" id="2_7dm06"]
+[ext_resource type="PackedScene" uid="uid://cc5ssq4mv10iw" path="res://scenes/components/health_component.tscn" id="2_kwt2o"]
+[ext_resource type="PackedScene" uid="uid://cmyastqia312m" path="res://scenes/components/crab_juice_drop_component.tscn" id="3_8cj46"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6oxqh"]
 
@@ -13,6 +15,11 @@ collision_layer = 8
 collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_4ohv3")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_kwt2o")]
+
+[node name="CrabJuiceDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_8cj46")]
+health_component = NodePath("../HealthComponent")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
