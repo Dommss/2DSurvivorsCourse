@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://br6ltvfygvksh"]
+[gd_scene load_steps=8 format=3 uid="uid://br6ltvfygvksh"]
 
 [ext_resource type="PackedScene" uid="uid://dod467nj3ao68" path="res://scenes/manager/enemy_manager.tscn" id="1_bik3w"]
-[ext_resource type="PackedScene" uid="uid://c2jkcj4oxsdw2" path="res://scenes/player/player.tscn" id="1_gdhny"]
+[ext_resource type="PackedScene" uid="uid://c2jkcj4oxsdw2" path="res://scenes/game_object/player/player.tscn" id="1_gdhny"]
 [ext_resource type="PackedScene" uid="uid://chulplxyvfpbg" path="res://scenes/UI/arena_time_ui.tscn" id="1_ptkqy"]
 [ext_resource type="TileSet" uid="uid://c1fbdngxwpo85" path="res://resources/tileset.tres" id="1_vnbna"]
-[ext_resource type="PackedScene" uid="uid://dmvi8u22dibgq" path="res://scenes/game_camera/game_camera.tscn" id="1_y277b"]
+[ext_resource type="PackedScene" uid="uid://dmvi8u22dibgq" path="res://scenes/game_object/game_camera/game_camera.tscn" id="1_y277b"]
 [ext_resource type="PackedScene" uid="uid://ce645uha2708h" path="res://scenes/manager/arena_time_manager.tscn" id="2_v3yhp"]
+[ext_resource type="PackedScene" uid="uid://cywssh3fai2r5" path="res://scenes/game_object/crab_juice_experience/crab_juice_experience.tscn" id="7_68j0b"]
 
 [node name="Main" type="Node"]
 
@@ -25,3 +26,15 @@ layer_0/tile_data = PackedInt32Array(0, 0, 4, 65536, 0, 4, 131072, 0, 4, 131073,
 
 [node name="Player" parent="." instance=ExtResource("1_gdhny")]
 position = Vector2(498, 397)
+
+[node name="CrabJuiceExperience" parent="." instance=ExtResource("7_68j0b")]
+position = Vector2(369, 485)
+
+[node name="CrabJuiceExperience2" parent="." instance=ExtResource("7_68j0b")]
+position = Vector2(342, 362)
+
+[node name="CrabJuiceExperience3" parent="." instance=ExtResource("7_68j0b")]
+position = Vector2(491, 306)
+
+[node name="CrabJuiceExperience4" parent="." instance=ExtResource("7_68j0b")]
+position = Vector2(622, 387)
