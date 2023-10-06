@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dk5tys43uukdk" path="res://scenes/components/death_component.tscn" id="2_rtbdc"]
 [ext_resource type="PackedScene" uid="uid://cqswh3y0ua4m7" path="res://scenes/components/velocity_component.tscn" id="2_uccfe"]
 [ext_resource type="PackedScene" uid="uid://d4feyy10sliw" path="res://scenes/components/hurtbox_component.tscn" id="4_4csws"]
-[ext_resource type="PackedScene" uid="uid://cmyastqia312m" path="res://scenes/components/crab_juice_drop_component.tscn" id="4_arq5u"]
+[ext_resource type="PackedScene" uid="uid://cmyastqia312m" path="res://scenes/components/ectoplasm_drop_component.gd.tscn" id="4_sj2x8"]
 
 [sub_resource type="Animation" id="Animation_aicvn"]
 resource_name = "walk"
@@ -136,7 +136,7 @@ max_health = 30.0
 max_speed = 50
 acceleration = 20.0
 
-[node name="CrabJuiceDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_arq5u")]
+[node name="EctoplasmDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_sj2x8")]
 health_component = NodePath("../HealthComponent")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("2_rtbdc")]

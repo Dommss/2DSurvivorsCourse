@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xvfigrudhqdc"
-path="res://.godot/imported/crab_juice_exp.png-d5f7dce0aa8cbe48a87566cac15b537f.ctex"
+uid="uid://bxjcn13ftugkr"
+path="res://.godot/imported/ectoplasm.png-922566900a20de0f6b51ab0f895e34f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/game_object/crab_juice_experience/crab_juice_exp.png"
-dest_files=["res://.godot/imported/crab_juice_exp.png-d5f7dce0aa8cbe48a87566cac15b537f.ctex"]
+source_file="res://scenes/game_object/ectoplasm/ectoplasm.png"
+dest_files=["res://.godot/imported/ectoplasm.png-922566900a20de0f6b51ab0f895e34f9.ctex"]
 
 [params]
 

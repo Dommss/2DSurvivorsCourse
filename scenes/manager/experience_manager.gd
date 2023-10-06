@@ -10,7 +10,7 @@ var current_level = 1
 var target_experience = 1
 
 func _ready():
-	GameEvents.experience_crab_juice_collected.connect(on_experience_collected)
+	GameEvents.experience_ectoplasm_collected.connect(on_experience_collected)
 
 func increment_experience(number: float):
 	current_experience = min(current_experience + number, target_experience)

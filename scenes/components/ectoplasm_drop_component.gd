@@ -2,7 +2,7 @@ extends Node
 
 @export_range(0, 1) var drop_percent: float = .5
 @export var health_component: Node
-@export var crab_juice_scene: PackedScene
+@export var ectoplasm_scene: PackedScene
 
 func _ready():
 	(health_component as HealthComponent).died.connect(on_died)
@@ -12,14 +12,14 @@ func on_died():
 	if randf() > drop_percent:
 		return
 	
-	if crab_juice_scene == null:
+	if ectoplasm_scene == null:
 		return
 	
 	if not owner is Node2D:
 		return
 	
 	var spawn_position = (owner as Node2D).global_position
-	var crab_juice_instance = crab_juice_scene.instantiate() as Node2D
+	var ectoplasm_instance = ectoplasm_scene.instantiate() as Node2D
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
-	entities_layer.add_child(crab_juice_instance)
-	crab_juice_instance.global_position = spawn_position
+	entities_layer.add_child(ectoplasm_instance)
+	ectoplasm_instance.global_position = spawn_position

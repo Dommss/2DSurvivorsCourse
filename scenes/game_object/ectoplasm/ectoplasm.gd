@@ -6,5 +6,5 @@ func _ready():
 	
 
 func on_area_entered(other_area: Area2D):
-	GameEvents.emit_crab_juice_exp_collected(1)
+	GameEvents.emit_ectoplasm_exp_collected(1)
 	queue_free()
