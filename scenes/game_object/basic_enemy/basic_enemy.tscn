@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxrctd0t8c87u"]
+[gd_scene load_steps=13 format=3 uid="uid://bxrctd0t8c87u"]
 
 [ext_resource type="Script" path="res://scenes/game_object/basic_enemy/basic_enemy.gd" id="1_4ohv3"]
 [ext_resource type="Texture2D" uid="uid://c0ncfcv3wbgi7" path="res://scenes/game_object/basic_enemy/basic_enemy.png" id="2_7dm06"]
 [ext_resource type="PackedScene" uid="uid://cc5ssq4mv10iw" path="res://scenes/components/health_component.tscn" id="2_kwt2o"]
 [ext_resource type="PackedScene" uid="uid://cmyastqia312m" path="res://scenes/components/crab_juice_drop_component.tscn" id="3_8cj46"]
 [ext_resource type="PackedScene" uid="uid://d4feyy10sliw" path="res://scenes/components/hurtbox_component.tscn" id="4_7rc63"]
+[ext_resource type="PackedScene" uid="uid://cqswh3y0ua4m7" path="res://scenes/components/velocity_component.tscn" id="4_qsa4n"]
 [ext_resource type="PackedScene" uid="uid://dk5tys43uukdk" path="res://scenes/components/death_component.tscn" id="4_vtl8e"]
 
 [sub_resource type="Animation" id="Animation_ax10x"]
@@ -113,7 +114,10 @@ libraries = {
 [node name="HealthComponent" parent="." instance=ExtResource("2_kwt2o")]
 
 [node name="CrabJuiceDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_8cj46")]
+drop_percent = 0.35
 health_component = NodePath("../HealthComponent")
+
+[node name="VelocityComponent" parent="." instance=ExtResource("4_qsa4n")]
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_vtl8e")]
 health_component = NodePath("../HealthComponent")
