@@ -1,9 +1,95 @@
-[gd_scene load_steps=10 format=3 uid="uid://c2jkcj4oxsdw2"]
+[gd_scene load_steps=13 format=3 uid="uid://c2jkcj4oxsdw2"]
 
 [ext_resource type="Texture2D" uid="uid://bgfqfmjun7jj3" path="res://scenes/game_object/player/player.png" id="1_14a3t"]
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_waq45"]
 [ext_resource type="PackedScene" uid="uid://7bukqqyk32d6" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_8dnqx"]
 [ext_resource type="PackedScene" uid="uid://cc5ssq4mv10iw" path="res://scenes/components/health_component.tscn" id="2_lecid"]
+
+[sub_resource type="Animation" id="Animation_h37hg"]
+resource_name = "walk"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -2), Vector2(-1.2666e-08, 0), Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 0.5, 1, 1, 1),
+"update": 0,
+"values": [0.261799, 0.0, -0.261799, -0.261799, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sprite2D:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(0.7, 1.05), Vector2(1.05, 0.7), Vector2(0.7, 1.02), Vector2(1.05, 0.7)]
+}
+
+[sub_resource type="Animation" id="Animation_lqh17"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hhkyy"]
+_data = {
+"RESET": SubResource("Animation_lqh17"),
+"walk": SubResource("Animation_h37hg")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0hxn"]
 bg_color = Color(0.247059, 0.14902, 0.192157, 1)
@@ -30,6 +116,11 @@ collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_waq45")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hhkyy")
+}
+
 [node name="HealthComponent" parent="." instance=ExtResource("2_lecid")]
 
 [node name="Abilities" type="Node" parent="."]
@@ -43,9 +134,9 @@ one_shot = true
 [node name="HealthBar" type="ProgressBar" parent="."]
 custom_minimum_size = Vector2(32, 6)
 offset_left = -16.0
-offset_top = -25.0
+offset_top = -27.0
 offset_right = 16.0
-offset_bottom = -19.0
+offset_bottom = -21.0
 pivot_offset = Vector2(16, 3)
 theme_override_styles/background = SubResource("StyleBoxFlat_c0hxn")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rbl68")
@@ -71,7 +162,9 @@ collision_mask = 8
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_413rg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
 texture = ExtResource("1_14a3t")
 offset = Vector2(0, -8)
 
