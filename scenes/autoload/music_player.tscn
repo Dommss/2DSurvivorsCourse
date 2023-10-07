@@ -1,0 +1,21 @@
+[gd_scene load_steps=8 format=3 uid="uid://bp4eybs8oiijy"]
+
+[ext_resource type="Script" path="res://scenes/autoload/music_player.gd" id="1_mdh5v"]
+[ext_resource type="AudioStream" uid="uid://3gtr71a5umed" path="res://assets/audio/Halloween Theme 1.mp3" id="2_alaeb"]
+[ext_resource type="AudioStream" uid="uid://c3bwnnu6ropwp" path="res://assets/audio/in_the_moonlight-152216.mp3" id="3_12xme"]
+[ext_resource type="AudioStream" uid="uid://g0jen50gilh2" path="res://assets/audio/like_a_ghost-131607.mp3" id="4_5iy3a"]
+[ext_resource type="AudioStream" uid="uid://ls4lhsgrpgmm" path="res://assets/audio/spooky_tune.mp3" id="5_ej8y3"]
+[ext_resource type="AudioStream" uid="uid://dovt661iuwq76" path="res://assets/audio/the-price-of-fear-119243.mp3" id="6_s6hc1"]
+[ext_resource type="AudioStream" uid="uid://d24v2fssdtqt8" path="res://assets/audio/witch-144292.mp3" id="7_l0y7w"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+volume_db = -12.0
+autoplay = true
+bus = &"Music"
+script = ExtResource("1_mdh5v")
+streams = Array[AudioStreamMP3]([ExtResource("2_alaeb"), ExtResource("3_12xme"), ExtResource("4_5iy3a"), ExtResource("5_ej8y3"), ExtResource("6_s6hc1"), ExtResource("7_l0y7w")])
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
