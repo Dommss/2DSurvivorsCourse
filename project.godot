@@ -35,6 +35,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="2d Survivors Course"
 
+[gui]
+
+theme/custom="res://resources/theme/theme.tres"
+
 [input]
 
 move_up={
