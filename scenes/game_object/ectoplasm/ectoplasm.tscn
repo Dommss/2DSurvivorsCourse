@@ -1,13 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://cywssh3fai2r5"]
+[gd_scene load_steps=9 format=3 uid="uid://cywssh3fai2r5"]
 
 [ext_resource type="Script" path="res://scenes/game_object/ectoplasm/ectoplasm.gd" id="1_wp2xl"]
 [ext_resource type="Texture2D" uid="uid://bxjcn13ftugkr" path="res://scenes/game_object/ectoplasm/ectoplasm.png" id="2_gsdbx"]
+[ext_resource type="PackedScene" uid="uid://bh5goc4a52owa" path="res://scenes/components/random_stream_player_2d_component.tscn" id="2_xeivy"]
+[ext_resource type="AudioStream" uid="uid://chxyf457ol33x" path="res://assets/audio/impactGeneric_light_000.ogg" id="3_l0k4j"]
+[ext_resource type="AudioStream" uid="uid://bucrk2w5s0gxh" path="res://assets/audio/impactGeneric_light_001.ogg" id="4_nt1p7"]
+[ext_resource type="AudioStream" uid="uid://cd7jvekamcj26" path="res://assets/audio/impactGeneric_light_002.ogg" id="5_i41au"]
+[ext_resource type="AudioStream" uid="uid://bqsm6lncl5x3" path="res://assets/audio/impactGeneric_light_003.ogg" id="6_5hesp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_apnhr"]
 radius = 12.0
 
 [node name="EctoplasmExperience" type="Node2D"]
 script = ExtResource("1_wp2xl")
+
+[node name="RandomStreamPlayer2DComponent" parent="." instance=ExtResource("2_xeivy")]
+streams = Array[AudioStream]([ExtResource("3_l0k4j"), ExtResource("4_nt1p7"), ExtResource("5_i41au"), ExtResource("6_5hesp")])
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

@@ -22,7 +22,7 @@ func tween_collect(percent: float, start_position: Vector2):
 
 
 func collect():
-	GameEvents.emit_ectoplasm_exp_collected(1)	
+	GameEvents.emit_ectoplasm_exp_collected(1)
 	queue_free()
 
 
@@ -34,8 +34,9 @@ func on_area_entered(other_area: Area2D):
 	Callable(disable_collision).call_deferred()
 	
 	var tween = create_tween()
-	tween.set_parallel()
 	tween.tween_method(tween_collect.bind(global_position), 0.0, 1.0, .5).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
-	tween.tween_property(sprite, "scale", Vector2.ZERO, .05).set_delay(.45)
+	tween.parallel().tween_property(sprite, "scale", Vector2.ZERO, .05).set_delay(.45)
 	tween.chain()
 	tween.tween_callback(collect)
+	
+	$RandomStreamPlayer2DComponent.play_random()
