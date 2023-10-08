@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://cybi8vj2sfbeu"]
 
-[ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_fbqmg"]
+[ext_resource type="Script" path="res://scenes/UI/options_menu.gd" id="1_c3vlb"]
 [ext_resource type="TileSet" uid="uid://c1fbdngxwpo85" path="res://resources/tileset.tres" id="2_ulwnx"]
 [ext_resource type="PackedScene" uid="uid://d0ej5bif4usrb" path="res://scenes/UI/sound_button.tscn" id="3_hngil"]
 
-[node name="MainMenu" type="CanvasLayer"]
-script = ExtResource("1_fbqmg")
+[node name="OptionsMenu" type="CanvasLayer"]
+script = ExtResource("1_c3vlb")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_ulwnx")
@@ -34,22 +34,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_bottom = 80
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(150, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
-custom_minimum_size = Vector2(50, 300)
 layout_mode = 2
 theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 32
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -57,41 +61,66 @@ size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 32
-text = "Rupert and his
-MISFORTUNE"
+text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_constants/margin_top = 95
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="PlayButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_hngil")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 25)
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Play"
+theme_override_constants/separation = 12
 
-[node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_hngil")]
+[node name="SfxOptionContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SfxOptionContainer"]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="SFXSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SfxOptionContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="MusicOptionContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptionContainer"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptionContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="WindowOptionContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowOptionContainer"]
+layout_mode = 2
+text = "Window Mode"
+
+[node name="WindowButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowOptionContainer/Label" instance=ExtResource("3_hngil")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+offset_left = 88.0
+offset_top = -3.0
+offset_right = 165.0
+offset_bottom = 17.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "Fullscreen"
+
+[node name="BackButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_hngil")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "Options"
-
-[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_hngil")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 25)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "Quit
-"
+text = "Back"

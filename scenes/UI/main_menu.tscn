@@ -34,22 +34,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_bottom = 100
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(150, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
-custom_minimum_size = Vector2(50, 300)
 layout_mode = 2
 theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 64
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -62,16 +65,12 @@ MISFORTUNE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_constants/margin_top = 95
+size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="PlayButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_m53ak")]
+[node name="PlayButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_m53ak")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
@@ -79,7 +78,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Play"
 
-[node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_m53ak")]
+[node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_m53ak")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
@@ -87,7 +86,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Options"
 
-[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_m53ak")]
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_m53ak")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
