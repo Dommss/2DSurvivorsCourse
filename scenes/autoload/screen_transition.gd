@@ -6,7 +6,7 @@ var skip_emit = false
 
 func transition():
 	$AnimationPlayer.play("default")
-	await transitioned_halfway
+	await $AnimationPlayer.animation_finished
 	skip_emit = true
 	$AnimationPlayer.play_backwards("default")
 

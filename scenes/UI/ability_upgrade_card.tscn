@@ -211,6 +211,7 @@ volume_db = -32.0
 streams = Array[AudioStream]([ExtResource("3_ul3e6"), ExtResource("4_oi1i6"), ExtResource("5_vt0ns"), ExtResource("6_nso82"), ExtResource("7_2nuia"), ExtResource("8_6016s"), ExtResource("9_m3hl3"), ExtResource("10_5pkm3"), ExtResource("11_kvabh"), ExtResource("12_ila61")])
 
 [node name="ClickPlayerComponent" parent="." instance=ExtResource("2_5v31y")]
+volume_db = -15.0
 streams = Array[AudioStream]([ExtResource("3_ul3e6"), ExtResource("4_oi1i6"), ExtResource("5_vt0ns"), ExtResource("6_nso82"), ExtResource("7_2nuia"), ExtResource("8_6016s"), ExtResource("9_m3hl3"), ExtResource("10_5pkm3"), ExtResource("11_kvabh"), ExtResource("12_ila61")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

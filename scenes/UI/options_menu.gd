@@ -17,7 +17,7 @@ func _ready():
 
 func update_display():
 	window_button.text = "Windowed"
-	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
 		window_button.text = "Fullscreen"
 	sfx_slider.value = get_bus_volume_percent("SFX")
 	music_slider.value = get_bus_volume_percent("Music")
@@ -37,9 +37,10 @@ func set_bus_volume_percent(bus_name: String, percent: float):
 
 func on_window_button_pressed():
 	var mode = DisplayServer.window_get_mode()
-	if mode != DisplayServer.WINDOW_MODE_FULLSCREEN:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	if mode != DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	else:
+		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	
 	update_display()
