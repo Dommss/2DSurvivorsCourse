@@ -9,17 +9,20 @@ var upgrade_pool: WeightedTable = WeightedTable.new()
 var upgrade_axe = preload("res://resources/upgrades/axe.tres")
 var upgrade_axe_rate = preload("res://resources/upgrades/axe_rate.tres")
 var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
+var upgrade_sword_amount = preload("res://resources/upgrades/sword_amount.tres")
 var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
 var upgrade_sword_damage = preload("res://resources/upgrades/sword_damage.tres")
 var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
 var upgrade_anvil = preload("res://resources/upgrades/anvil.tres")
 var upgrade_anvil_rate = preload("res://resources/upgrades/anvil_rate.tres")
 var upgrade_anvil_damage = preload("res://resources/upgrades/anvil_damage.tres")
+var upgrade_anvil_amount = preload("res://resources/upgrades/anvil_amount.tres")
 
 
 func _ready():
 	upgrade_pool.add_item(upgrade_axe, 10)
 	upgrade_pool.add_item(upgrade_anvil, 10)
+	upgrade_pool.add_item(upgrade_sword_amount, 4)
 	upgrade_pool.add_item(upgrade_sword_rate, 10)
 	upgrade_pool.add_item(upgrade_sword_damage, 10)
 	upgrade_pool.add_item(upgrade_player_speed, 5)
@@ -36,6 +39,7 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 	if chosen_upgrade.id == upgrade_anvil.id:
 		upgrade_pool.add_item(upgrade_anvil_rate, 10)
 		upgrade_pool.add_item(upgrade_anvil_damage, 10)
+		upgrade_pool.add_item(upgrade_anvil_amount, 4)
 
 
 
