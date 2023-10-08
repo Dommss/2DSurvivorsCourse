@@ -42,7 +42,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_bottom = 100
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer"]
 position = Vector2(203, 178)
@@ -63,7 +62,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/PanelContainer"]
-position = Vector2(110, 25)
+position = Vector2(114, 25)
 scale = Vector2(2.25, 2.1875)
 texture = ExtResource("5_jo8m3")
 
@@ -141,6 +140,14 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Play"
+
+[node name="UpgradesButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_m53ak")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Upgrades"
 
 [node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_m53ak")]
 unique_name_in_owner = true

@@ -43,7 +43,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_bottom = 80
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer"]
 position = Vector2(205, 194)
@@ -64,7 +63,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Sprite2D3" type="Sprite2D" parent="MarginContainer/PanelContainer"]
-position = Vector2(107, 23)
+position = Vector2(112, 23)
 scale = Vector2(2.25, 2.1875)
 texture = ExtResource("4_2i5tf")
 
@@ -80,7 +79,7 @@ scale = Vector2(2.25, 2.1875)
 texture = ExtResource("6_ms2q3")
 
 [node name="Sprite2D6" type="Sprite2D" parent="MarginContainer/PanelContainer"]
-position = Vector2(140, 17)
+position = Vector2(148, 17)
 rotation = 0.391207
 scale = Vector2(1.39137, 1.3256)
 texture = ExtResource("7_yb03r")

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8dg30wnnead4"]
+[gd_scene load_steps=7 format=3 uid="uid://c8dg30wnnead4"]
 
 [ext_resource type="Script" path="res://scenes/UI/meta_menu.gd" id="1_wn1av"]
 [ext_resource type="TileSet" uid="uid://c1fbdngxwpo85" path="res://resources/tileset.tres" id="2_54cfg"]
 [ext_resource type="Resource" uid="uid://bmlky6cxiwxw0" path="res://resources/meta_upgrades/experience_gain.tres" id="2_t4wc5"]
+[ext_resource type="PackedScene" uid="uid://cc6ytguhwhafx" path="res://scenes/UI/meta_upgrade_card.tscn" id="3_gt2y3"]
+[ext_resource type="PackedScene" uid="uid://d0ej5bif4usrb" path="res://scenes/UI/sound_button.tscn" id="10_5t0d7"]
 [ext_resource type="PackedScene" uid="uid://cjdu5qc8y75fk" path="res://scenes/UI/vignette.tscn" id="11_hf6aw"]
 
 [node name="MetaMenu" type="CanvasLayer"]
@@ -49,6 +51,23 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/h_separation = 55
 columns = 3
+
+[node name="MetaUpgradeCard" parent="MarginContainer/GridContainer" instance=ExtResource("3_gt2y3")]
+layout_mode = 2
+
+[node name="MetaUpgradeCard2" parent="MarginContainer/GridContainer" instance=ExtResource("3_gt2y3")]
+layout_mode = 2
+
+[node name="MetaUpgradeCard3" parent="MarginContainer/GridContainer" instance=ExtResource("3_gt2y3")]
+layout_mode = 2
+
+[node name="BackButton" parent="MarginContainer" instance=ExtResource("10_5t0d7")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Back"
 
 [node name="Vignette" parent="." instance=ExtResource("11_hf6aw")]
 layer = 3
