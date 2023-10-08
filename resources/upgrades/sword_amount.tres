@@ -7,4 +7,4 @@ script = ExtResource("1_vwof1")
 id = "sword_amount"
 max_quantity = 2
 name = "More Ghosties!"
-description = "Adds 1 additional sword to harass the filthy humans. However, you lose control of the swords."
+description = "Adds 1 additional sword to harass the filthy humans."
