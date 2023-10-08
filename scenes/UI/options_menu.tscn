@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://du8cvwobpnmkx" path="res://scenes/UI/images/tile_0120.png" id="9_43t5w"]
 
 [node name="OptionsMenu" type="CanvasLayer"]
+process_mode = 3
 layer = 2
 script = ExtResource("1_c3vlb")
 
