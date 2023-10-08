@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://cfj6atwjbbeq7"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_pivir"]
+
+[resource]
+script = ExtResource("1_pivir")
+id = "movement_speed_increase"
+max_quantity = 3
+experience_cost = 125
+title = "Increase Speed"
+description = "Increase your movement speed by 5% per level."

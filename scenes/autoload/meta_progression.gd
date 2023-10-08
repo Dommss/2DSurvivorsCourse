@@ -11,6 +11,7 @@ var save_data: Dictionary = {
 func _ready():
 	GameEvents.experience_ectoplasm_collected.connect(on_experience_collected)
 	load_save_file()
+	on_experience_collected(10000)
 
 
 func load_save_file():
@@ -18,7 +19,6 @@ func load_save_file():
 		return
 	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
 	save_data = file.get_var()
-	print(save_data)
 
 
 func save():

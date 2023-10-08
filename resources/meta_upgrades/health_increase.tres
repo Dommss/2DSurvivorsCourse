@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://b5pce3rxogk0y"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_uk12v"]
+
+[resource]
+script = ExtResource("1_uk12v")
+id = "health_increase"
+max_quantity = 15
+experience_cost = 25
+title = "Increase Max HP"
+description = "Increase your Max HP by 1 per level."

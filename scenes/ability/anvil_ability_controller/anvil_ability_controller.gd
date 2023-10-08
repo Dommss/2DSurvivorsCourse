@@ -6,6 +6,7 @@ var base_damage = 18
 var additional_damage_percent = 1
 var base_wait_time
 var anvil_amount = 0
+var meta_data = MetaProgression.get_upgrade_count("damage_increase")
 
 @export var anvil_ability_scene: PackedScene
 
@@ -38,7 +39,7 @@ func on_timer_timeout():
 		var anvil_ability = anvil_ability_scene.instantiate()
 		get_tree().get_first_node_in_group("foreground_layer").add_child(anvil_ability)
 		anvil_ability.global_position = spawn_position
-		anvil_ability.hitbox_component.damage = base_damage * additional_damage_percent
+		anvil_ability.hitbox_component.damage = (base_damage * additional_damage_percent) + (base_damage * (meta_data * .05))
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):

@@ -6,16 +6,22 @@ signal health_changed
 signal health_decreased
 
 @export var max_health: float = 10
-var current_health
+@export var should_use_meta: bool
 
+var current_health
+var meta_health = MetaProgression.get_upgrade_count("health_increase")
+var adjusted_max_health = max_health + meta_health
 
 func _ready():
-	current_health = max_health
+	if should_use_meta:
+		current_health = adjusted_max_health
+	else:
+		current_health = max_health
 
 
 
 func damage(damage_amount: float):
-	current_health = clamp(current_health - damage_amount, 0, max_health)
+	current_health = clamp(current_health - damage_amount, 0, adjusted_max_health)
 	health_changed.emit()
 	if damage_amount > 0:
 		health_decreased.emit()
@@ -27,9 +33,9 @@ func heal(heal_amount: int):
 
 
 func get_health_percent():
-	if max_health <= 0:
+	if adjusted_max_health <= 0:
 		return 0
-	return min(current_health / max_health, 1)
+	return min(current_health / adjusted_max_health, 1)
 
 
 func check_death():	

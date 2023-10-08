@@ -15,7 +15,7 @@ var number_colliding_bodies = 0
 
 func _ready():
 	arena_time_manager.arena_difficulty_increased.connect(on_arena_difficulty_increased)
-	base_movement_speed = velocity_component.max_speed
+	base_movement_speed = velocity_component.finalized_speed
 	$CollisionArea2D.body_entered.connect(on_body_entered)
 	$CollisionArea2D.body_exited.connect(on_body_exited)
 	damage_interval_timer.timeout.connect(on_damage_interval_timer_timeout)

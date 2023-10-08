@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_t05gr")
 id = "experience_gain"
-max_quantity = 1
-experience_cost = 50
+max_quantity = 3
+experience_cost = 150
 title = "Increase Experience"
 description = "Increases experience drop chance by 10%."

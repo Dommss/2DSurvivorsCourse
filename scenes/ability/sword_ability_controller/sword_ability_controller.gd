@@ -8,7 +8,7 @@ var base_damage = 5
 var additional_damage_percent = 1
 var base_wait_time
 var sword_amount = 0
-
+var meta_data = MetaProgression.get_upgrade_count("damage_increase")
 
 func _ready():
 	base_wait_time = $Timer.wait_time
@@ -39,7 +39,7 @@ func on_timer_timeout():
 		var sword_instance = sword_ability.instantiate() as SwordAbility
 		var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 		foreground_layer.add_child(sword_instance)
-		sword_instance.hitbox_component.damage = base_damage * additional_damage_percent
+		sword_instance.hitbox_component.damage = (base_damage * additional_damage_percent) + (base_damage * (meta_data * .05))
 		
 		sword_instance.global_position = enemies[0 + i].global_position
 		sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU)) * 4

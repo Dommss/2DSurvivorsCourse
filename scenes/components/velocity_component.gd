@@ -1,9 +1,16 @@
 extends Node
 
-@export var max_speed: int = 40
+@export var max_speed: float = 40
 @export var acceleration: float = 5
+@export var should_use_meta: bool
 
 var velocity = Vector2.ZERO
+var finalized_speed
+
+
+func _ready():
+	var meta_speed = MetaProgression.get_upgrade_count("movement_speed_increase")
+	finalized_speed = max_speed + (max_speed * (meta_speed * .05))
 
 
 func accelerate_to_player():
@@ -20,8 +27,12 @@ func accelerate_to_player():
 
 
 func accelerate_in_direction(direction: Vector2):
-	var desired_velocity = direction * max_speed
-	velocity = velocity.lerp(desired_velocity, 1 - exp(-acceleration * get_process_delta_time()))
+	if should_use_meta:
+		var desired_velocity = direction * finalized_speed
+		velocity = velocity.lerp(desired_velocity, 1 - exp(-acceleration * get_process_delta_time()))
+	else:
+		var desired_velocity = direction * max_speed
+		velocity = velocity.lerp(desired_velocity, 1 - exp(-acceleration * get_process_delta_time()))
 
 
 func decelerate():
