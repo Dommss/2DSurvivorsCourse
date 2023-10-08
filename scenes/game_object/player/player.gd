@@ -9,9 +9,12 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var visuals = $Visuals
 @onready var velocity_component = $VelocityComponent
+@onready var pickup_range = %CollisionShape2D
 
 var base_movement_speed = 0
 var number_colliding_bodies = 0
+var base_pickup_range = 1
+var meta_data = MetaProgression.get_upgrade_count("pickup_range_increase")
 
 func _ready():
 	arena_time_manager.arena_difficulty_increased.connect(on_arena_difficulty_increased)
@@ -22,6 +25,10 @@ func _ready():
 	health_component.health_decreased.connect(on_health_decreased)
 	health_component.health_changed.connect(on_health_changed)
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
+	
+	var adjusted_pickup_range = base_pickup_range + (base_pickup_range * (meta_data * .5))
+	pickup_range.scale = Vector2(adjusted_pickup_range, adjusted_pickup_range)
+	
 	update_health_display()
 
 

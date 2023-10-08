@@ -8,4 +8,4 @@ id = "pickup_range_increase"
 max_quantity = 3
 experience_cost = 175
 title = "Increase Pickup Range"
-description = "Increase your pickup range by 10% per level."
+description = "Increase your pickup range by 50% per level."
