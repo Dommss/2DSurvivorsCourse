@@ -120,7 +120,7 @@ _data = {
 "walk": SubResource("Animation_aicvn")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vj7fj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4a3bd"]
 resource_local_to_scene = true
 shader = ExtResource("6_tkecd")
 shader_parameter/lerp_percent = null
@@ -143,19 +143,20 @@ libraries = {
 }
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_nqrjt")]
-max_health = 30.0
+max_health = 15.0
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_uccfe")]
 max_speed = 50
 acceleration = 20.0
 
 [node name="EctoplasmDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_sj2x8")]
+drop_percent = 0.4
 health_component = NodePath("../HealthComponent")
 
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_8hc0y")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_vj7fj")
+hit_flash_material = SubResource("ShaderMaterial_4a3bd")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("2_rtbdc")]
 health_component = NodePath("../HealthComponent")

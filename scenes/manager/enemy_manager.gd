@@ -3,7 +3,13 @@ extends Node
 const SPAWN_RADIUS = 375
 
 @export var basic_enemy_scene: PackedScene
+@export var basic_enemy_two_scene: PackedScene
+@export var basic_enemy_three_scene: PackedScene
 @export var wizard_enemy_scene: PackedScene
+@export var fast_enemy_scene: PackedScene
+@export var fast_enemy_two_scene: PackedScene
+@export var tanky_enemy_scene: PackedScene
+@export var boss_enemy_scene: PackedScene
 @export var arena_time_manager: Node
 
 @onready var timer = $Timer
@@ -62,4 +68,20 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 	timer.wait_time = base_spawn_time - time_off
 	
 	if arena_difficulty == 6:
-		enemy_table.add_item(wizard_enemy_scene, 20)
+		enemy_table.add_item(wizard_enemy_scene, 15)
+	elif arena_difficulty == 18:
+		enemy_table.add_item(fast_enemy_scene, 8)
+	elif arena_difficulty == 36:
+		enemy_table.add_item(basic_enemy_two_scene, 20)
+		enemy_table.remove_item(basic_enemy_scene)
+	elif arena_difficulty == 54:
+		enemy_table.add_item(basic_enemy_three_scene, 20)
+		enemy_table.add_item(tanky_enemy_scene, 5)
+	elif arena_difficulty == 60:
+		enemy_table.add_item(fast_enemy_two_scene, 8)
+		enemy_table.remove_item(basic_enemy_two_scene)
+	elif arena_difficulty == 84:
+		enemy_table.remove_item(fast_enemy_scene)
+	elif arena_difficulty == 120:
+		enemy_table.add_item(boss_enemy_scene, 1)
+		

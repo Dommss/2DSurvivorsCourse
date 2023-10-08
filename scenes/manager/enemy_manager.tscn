@@ -1,13 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://dod467nj3ao68"]
+[gd_scene load_steps=10 format=3 uid="uid://dod467nj3ao68"]
 
 [ext_resource type="Script" path="res://scenes/manager/enemy_manager.gd" id="1_fb60h"]
 [ext_resource type="PackedScene" uid="uid://bqdd6eaqx4hxb" path="res://scenes/game_object/wizard_enemy/wizard_enemy.tscn" id="2_8oqt3"]
 [ext_resource type="PackedScene" uid="uid://bxrctd0t8c87u" path="res://scenes/game_object/basic_enemy/basic_enemy.tscn" id="2_daxe1"]
+[ext_resource type="PackedScene" uid="uid://bia41eh1e8our" path="res://scenes/game_object/basic_enemy_two/basic_enemy_two.tscn" id="3_l1s50"]
+[ext_resource type="PackedScene" uid="uid://bs88d5lvce0gf" path="res://scenes/game_object/basic_enemy_three/basic_enemy_three.tscn" id="4_7xtr3"]
+[ext_resource type="PackedScene" uid="uid://d4a3dp3m86xh5" path="res://scenes/game_object/fast_enemy/fast_enemy.tscn" id="4_j7lqo"]
+[ext_resource type="PackedScene" uid="uid://ouc2bkad855y" path="res://scenes/game_object/tanky_enemy/tanky_enemy.tscn" id="5_eniiq"]
+[ext_resource type="PackedScene" uid="uid://di2qgk8ckb7ht" path="res://scenes/game_object/fast_enemy_two/fast_enemy_two.tscn" id="7_s6xpr"]
+[ext_resource type="PackedScene" uid="uid://dsnra2qilffg3" path="res://scenes/game_object/boss_enemy/boss_enemy.tscn" id="8_1b1ki"]
 
 [node name="EnemyManager" type="Node"]
 script = ExtResource("1_fb60h")
 basic_enemy_scene = ExtResource("2_daxe1")
+basic_enemy_two_scene = ExtResource("3_l1s50")
+basic_enemy_three_scene = ExtResource("4_7xtr3")
 wizard_enemy_scene = ExtResource("2_8oqt3")
+fast_enemy_scene = ExtResource("4_j7lqo")
+fast_enemy_two_scene = ExtResource("7_s6xpr")
+tanky_enemy_scene = ExtResource("5_eniiq")
+boss_enemy_scene = ExtResource("8_1b1ki")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
