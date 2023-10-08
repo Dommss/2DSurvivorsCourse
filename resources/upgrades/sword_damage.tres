@@ -6,5 +6,5 @@
 script = ExtResource("1_jdlqi")
 id = "sword_damage"
 max_quantity = 0
-name = "Sword Damage"
+name = "Pierce thy Heart"
 description = "Increases sword damage by 15%."

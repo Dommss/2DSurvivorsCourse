@@ -6,5 +6,5 @@
 script = ExtResource("1_3id3l")
 id = "player_speed"
 max_quantity = 3
-name = "Movement Speed"
-description = "Increases your movement speed by 10%"
+name = "You've got the Zoomies"
+description = "Increases your movement speed by 10%."

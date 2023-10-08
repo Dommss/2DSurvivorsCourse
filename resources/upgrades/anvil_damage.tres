@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://duuw0un3q1o48"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_6wx2q"]
+
+[resource]
+script = ExtResource("1_6wx2q")
+id = "anvil_damage"
+max_quantity = 0
+name = "Quality Material"
+description = "Increases anvil's material quality, increases damage by 10%."

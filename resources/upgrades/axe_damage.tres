@@ -6,5 +6,5 @@
 script = ExtResource("1_7fxh4")
 id = "axe_damage"
 max_quantity = 0
-name = "Axe Damage"
+name = "Sharpen the Axe"
 description = "Increases axe damage by 10%."

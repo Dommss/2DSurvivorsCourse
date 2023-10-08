@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://e6eq2vaplkq0"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_yw2e0"]
+
+[resource]
+script = ExtResource("1_yw2e0")
+id = "anvil_rate"
+max_quantity = 5
+name = "Heavier Anvil"
+description = "Increases anvil's drop rate by 10%."

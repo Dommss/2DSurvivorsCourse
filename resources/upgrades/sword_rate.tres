@@ -6,5 +6,5 @@
 script = ExtResource("1_djfm1")
 id = "sword_rate"
 max_quantity = 5
-name = "Sword Quickness"
+name = "Wind Up"
 description = "Increases sword attack rate by 10%."
