@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bidkp6gn4muqc"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://bidkp6gn4muqc"]
 
 [ext_resource type="Texture2D" uid="uid://dmdbrvx86kotw" path="res://assets/ui/ui.png" id="1_5sbkc"]
 [ext_resource type="FontFile" uid="uid://bhwb8gup1deaf" path="res://resources/theme/Bitfantasy.ttf" id="1_ujfr5"]
@@ -32,6 +32,7 @@ texture_margin_top = 3.0
 texture_margin_right = 3.0
 texture_margin_bottom = 3.0
 region_rect = Rect2(4, 20, 8, 8)
+modulate_color = Color(0.945098, 0.682353, 0.533333, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gmd50"]
 texture = ExtResource("1_5sbkc")
@@ -41,6 +42,35 @@ texture_margin_right = 3.0
 texture_margin_bottom = 3.0
 region_rect = Rect2(4, 20, 8, 8)
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wrq6t"]
+size = Vector2(0, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7pc7i"]
+size = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4qh4"]
+bg_color = Color(0.941176, 0.466667, 0.109804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3525"]
+bg_color = Color(0.941176, 0.466667, 0.109804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppt36"]
+content_margin_left = 2.0
+content_margin_top = 6.0
+content_margin_right = 2.0
+content_margin_bottom = 6.0
+bg_color = Color(0.247059, 0.14902, 0.192157, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wpu8y"]
 texture = ExtResource("1_5sbkc")
 texture_margin_left = 4.0
@@ -48,6 +78,7 @@ texture_margin_top = 13.0
 texture_margin_right = 4.0
 texture_margin_bottom = 10.0
 region_rect = Rect2(0, 0, 16, 16)
+modulate_color = Color(0.341176, 0.215686, 0.270588, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0hxn"]
 bg_color = Color(0.247059, 0.14902, 0.192157, 1)
@@ -65,6 +96,11 @@ Button/styles/focus = SubResource("StyleBoxEmpty_8gy2r")
 Button/styles/hover = SubResource("StyleBoxTexture_lnr4b")
 Button/styles/normal = SubResource("StyleBoxTexture_ax2ah")
 Button/styles/pressed = SubResource("StyleBoxTexture_gmd50")
+HSlider/icons/grabber = SubResource("PlaceholderTexture2D_wrq6t")
+HSlider/icons/grabber_highlight = SubResource("PlaceholderTexture2D_7pc7i")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_g4qh4")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_s3525")
+HSlider/styles/slider = SubResource("StyleBoxFlat_ppt36")
 Label/constants/line_spacing = 0
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_wpu8y")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_c0hxn")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://167liu8v6qe8"]
+[gd_scene load_steps=5 format=3 uid="uid://167liu8v6qe8"]
 
 [ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_as02e"]
 [ext_resource type="TileSet" uid="uid://c1fbdngxwpo85" path="res://resources/tileset.tres" id="1_sey6c"]
 [ext_resource type="PackedScene" uid="uid://d0ej5bif4usrb" path="res://scenes/UI/sound_button.tscn" id="2_m53ak"]
+[ext_resource type="PackedScene" uid="uid://cjdu5qc8y75fk" path="res://scenes/UI/vignette.tscn" id="2_ocgsq"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_as02e")
@@ -60,7 +61,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 32
-text = "Rupert and his
+text = "Rupert's
 MISFORTUNE"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -94,3 +95,5 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Quit
 "
+
+[node name="Vignette" parent="." instance=ExtResource("2_ocgsq")]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cybi8vj2sfbeu"]
+[gd_scene load_steps=5 format=3 uid="uid://cybi8vj2sfbeu"]
 
 [ext_resource type="Script" path="res://scenes/UI/options_menu.gd" id="1_c3vlb"]
+[ext_resource type="PackedScene" uid="uid://cjdu5qc8y75fk" path="res://scenes/UI/vignette.tscn" id="2_0wxsy"]
 [ext_resource type="TileSet" uid="uid://c1fbdngxwpo85" path="res://resources/tileset.tres" id="2_ulwnx"]
 [ext_resource type="PackedScene" uid="uid://d0ej5bif4usrb" path="res://scenes/UI/sound_button.tscn" id="3_hngil"]
 
@@ -77,6 +78,8 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SfxOptionContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/outline_size = 3
 text = "SFX Volume"
 
 [node name="SFXSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SfxOptionContainer"]
@@ -90,6 +93,8 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptionContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/outline_size = 3
 text = "Music Volume"
 
 [node name="MusicSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptionContainer"]
@@ -103,6 +108,8 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowOptionContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/outline_size = 3
 text = "Window Mode"
 
 [node name="WindowButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowOptionContainer/Label" instance=ExtResource("3_hngil")]
@@ -124,3 +131,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Back"
+
+[node name="Vignette" parent="." instance=ExtResource("2_0wxsy")]
+layer = 2
