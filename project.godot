@@ -10,8 +10,10 @@ config_version=5
 
 [application]
 
-config/name="2d Survivors Course"
+config/name="Rupert's Misfortune"
 run/main_scene="res://scenes/UI/main_menu.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="Rupert's Misfortune"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
