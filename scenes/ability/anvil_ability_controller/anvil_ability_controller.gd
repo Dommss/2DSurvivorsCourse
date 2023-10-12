@@ -2,7 +2,7 @@ extends Node
 
 var base_max_range = 100
 var base_min_range = 15
-var base_damage = 18
+var base_damage = 25
 var additional_damage_percent = 1
 var base_wait_time
 var anvil_amount = 0

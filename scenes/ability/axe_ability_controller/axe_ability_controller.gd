@@ -2,7 +2,7 @@ extends Node
 
 @export var axe_ability_scene: PackedScene
 
-var base_damage = 10
+var base_damage = 15
 var additional_damage_percent = 1
 var base_wait_time
 var meta_data = MetaProgression.get_upgrade_count("damage_increase")

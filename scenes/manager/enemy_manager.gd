@@ -13,7 +13,7 @@ extends Node
 
 @onready var timer = $Timer
 
-var spawn_radius = 375
+var spawn_radius = 500
 var enemy_count: int
 var scaling_enemy_count: int
 var base_spawn_time = 0
@@ -35,6 +35,7 @@ func get_spawn_position():
  
 	if (player == null):
 		return Vector2.ZERO
+	
 	var spawn_position = Vector2.ZERO
 	var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
 	var checks = 1
@@ -79,11 +80,12 @@ func on_timer_timeout():
 		enemy.global_position = get_spawn_position()
 	
 	enemy_count += number_to_spawn
+	print(enemy_count)
 
 
 func on_arena_difficulty_increased(arena_difficulty: int):
 	var time_off = (.1 / 12) * arena_difficulty
-	time_off = min(time_off, 1.3)
+	time_off = min(time_off, 0.9)
 	timer.wait_time = base_spawn_time - time_off
 	
 	if arena_difficulty == 6:
