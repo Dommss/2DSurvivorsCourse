@@ -14,6 +14,8 @@ const SPAWN_RADIUS = 375
 
 @onready var timer = $Timer
 
+var enemy_count: int
+var scaling_enemy_count: int
 var base_spawn_time = 0
 var enemy_table = WeightedTable.new()
 var number_to_spawn = 1
@@ -24,6 +26,8 @@ func _ready():
 	base_spawn_time = timer.wait_time
 	timer.timeout.connect(on_timer_timeout)
 	arena_time_manager.arena_difficulty_increased.connect(on_arena_difficulty_increased)
+	GameEvents.enemy_died.connect(on_enemy_died)
+	scaling_enemy_count = 50
 
 
 func get_spawn_position():
@@ -55,6 +59,9 @@ func on_timer_timeout():
 	if player == null:
 		return
 	
+	if enemy_count >= scaling_enemy_count:
+		return
+	
 	for i in number_to_spawn:
 		var enemy_scene = enemy_table.pick_item()
 		var enemy = enemy_scene.instantiate() as Node2D
@@ -62,6 +69,10 @@ func on_timer_timeout():
 		var entities_layer = get_tree().get_first_node_in_group("entities_layer")
 		entities_layer.add_child(enemy)
 		enemy.global_position = get_spawn_position()
+	
+	enemy_count += number_to_spawn
+	print(enemy_count)
+	print(scaling_enemy_count)
 
 
 func on_arena_difficulty_increased(arena_difficulty: int):
@@ -71,21 +82,31 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 	
 	if arena_difficulty == 6:
 		enemy_table.add_item(wizard_enemy_scene, 15)
+		scaling_enemy_count = 100
 	elif arena_difficulty == 18:
 		enemy_table.add_item(fast_enemy_scene, 8)
+		scaling_enemy_count = 150
 	elif arena_difficulty == 36:
 		enemy_table.add_item(basic_enemy_two_scene, 20)
 		enemy_table.remove_item(basic_enemy_scene)
+		scaling_enemy_count = 175
 	elif arena_difficulty == 54:
 		enemy_table.add_item(basic_enemy_three_scene, 20)
 		enemy_table.add_item(tanky_enemy_scene, 5)
+		scaling_enemy_count = 200
 	elif arena_difficulty == 60:
 		enemy_table.add_item(fast_enemy_two_scene, 8)
 		enemy_table.remove_item(basic_enemy_two_scene)
+		scaling_enemy_count = 225
 	elif arena_difficulty == 84:
 		enemy_table.remove_item(fast_enemy_scene)
+		scaling_enemy_count = 250
 	elif arena_difficulty == 120:
 		enemy_table.add_item(boss_enemy_scene, 1)
 	
-	if (arena_difficulty % 30) == 0:
+	if (arena_difficulty % 6) == 0:
 		number_to_spawn += 1
+
+
+func on_enemy_died():
+	enemy_count -= 1
