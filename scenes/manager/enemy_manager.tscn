@@ -22,4 +22,5 @@ tanky_enemy_scene = ExtResource("5_eniiq")
 boss_enemy_scene = ExtResource("8_1b1ki")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true

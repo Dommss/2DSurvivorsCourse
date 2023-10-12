@@ -71,8 +71,6 @@ func on_timer_timeout():
 		enemy.global_position = get_spawn_position()
 	
 	enemy_count += number_to_spawn
-	print(enemy_count)
-	print(scaling_enemy_count)
 
 
 func on_arena_difficulty_increased(arena_difficulty: int):
@@ -104,7 +102,7 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 	elif arena_difficulty == 120:
 		enemy_table.add_item(boss_enemy_scene, 1)
 	
-	if (arena_difficulty % 6) == 0:
+	if (arena_difficulty % 60) == 0:
 		number_to_spawn += 1
 
 
