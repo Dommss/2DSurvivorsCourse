@@ -1,6 +1,5 @@
 extends Node
 
-const SPAWN_RADIUS = 375
 
 @export var basic_enemy_scene: PackedScene
 @export var basic_enemy_two_scene: PackedScene
@@ -14,6 +13,7 @@ const SPAWN_RADIUS = 375
 
 @onready var timer = $Timer
 
+var spawn_radius = 375
 var enemy_count: int
 var scaling_enemy_count: int
 var base_spawn_time = 0
@@ -37,8 +37,8 @@ func get_spawn_position():
 	
 	var spawn_position = Vector2.ZERO
 	var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
-	for i in 4:
-		spawn_position = player.global_position + (random_direction * SPAWN_RADIUS)
+	for i in 8:
+		spawn_position = player.global_position + (random_direction * spawn_radius)
 		var additional_check_offset = random_direction * 20
 		
 		var query_parameters = PhysicsRayQueryParameters2D.create(player.global_position, spawn_position + additional_check_offset, 1)
@@ -47,7 +47,7 @@ func get_spawn_position():
 		if result.is_empty():
 			break
 		else:
-			random_direction = random_direction.rotated(deg_to_rad(90))
+			random_direction = random_direction.rotated(deg_to_rad(22.5))
 	
 	return spawn_position
 
@@ -75,7 +75,7 @@ func on_timer_timeout():
 
 func on_arena_difficulty_increased(arena_difficulty: int):
 	var time_off = (.1 / 12) * arena_difficulty
-	time_off = min(time_off, .7)
+	time_off = min(time_off, 1.3)
 	timer.wait_time = base_spawn_time - time_off
 	
 	if arena_difficulty == 6:

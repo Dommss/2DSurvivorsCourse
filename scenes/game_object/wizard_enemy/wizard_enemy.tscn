@@ -120,7 +120,7 @@ _data = {
 "walk": SubResource("Animation_aicvn")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4a3bd"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jxh1l"]
 resource_local_to_scene = true
 shader = ExtResource("6_tkecd")
 shader_parameter/lerp_percent = null
@@ -156,7 +156,7 @@ health_component = NodePath("../HealthComponent")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_8hc0y")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_4a3bd")
+hit_flash_material = SubResource("ShaderMaterial_jxh1l")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("2_rtbdc")]
 health_component = NodePath("../HealthComponent")
@@ -172,7 +172,6 @@ texture = ExtResource("1_cfnib")
 offset = Vector2(0, -8)
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_4csws")]
-visible = false
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
@@ -180,7 +179,6 @@ position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_pvogt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 light_mask = 0
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_wkcbb")
