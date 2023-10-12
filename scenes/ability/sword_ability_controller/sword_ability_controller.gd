@@ -48,8 +48,15 @@ func on_timer_timeout():
 		
 		sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU)) * 4
 		
-		var enemy_direction = enemies[0 + (i - 1)].global_position - sword_instance.global_position
-		sword_instance.rotation = enemy_direction.angle()
+		var final_enemy_direction
+		if sword_amount == 1:
+			var enemy_direction = enemies[0].global_position - sword_instance.global_position
+			final_enemy_direction = enemy_direction
+		elif sword_amount == 2:
+			var enemy_direction = enemies[0 + (i - 1)].global_position - sword_instance.global_position
+			final_enemy_direction = enemy_direction
+		
+		sword_instance.rotation = final_enemy_direction.angle()
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):

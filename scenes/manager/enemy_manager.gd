@@ -32,23 +32,31 @@ func _ready():
 
 func get_spawn_position():
 	var player = get_tree().get_first_node_in_group("player") as Node2D
-	if player == null:
+ 
+	if (player == null):
 		return Vector2.ZERO
-	
 	var spawn_position = Vector2.ZERO
 	var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
-	for i in 8:
-		spawn_position = player.global_position + (random_direction * spawn_radius)
-		var additional_check_offset = random_direction * 20
+	var checks = 1
+	var reducing_radius = spawn_radius
+	while (true):
+		var complete_turns = (checks / 4) as float
+		if complete_turns > 1:
+			#Reduce spawn radius by 10% each full turn
+			reducing_radius = spawn_radius * (1 - (complete_turns / 10))
+			spawn_position = player.global_position + (random_direction * reducing_radius)
 		
-		var query_parameters = PhysicsRayQueryParameters2D.create(player.global_position, spawn_position + additional_check_offset, 1)
+		var query_parameters = PhysicsRayQueryParameters2D.create(player.global_position, 
+			spawn_position, 1)
 		var result = get_tree().root.world_2d.direct_space_state.intersect_ray(query_parameters)
-	
+		
 		if result.is_empty():
 			break
 		else:
-			random_direction = random_direction.rotated(deg_to_rad(22.5))
-	
+			checks += 1
+			random_direction = random_direction.rotated(deg_to_rad(90))
+ 
+	print("Needed " + str(checks) + " to spawn and a radius of " + str(reducing_radius))
 	return spawn_position
 
 
