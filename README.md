@@ -8,5 +8,4 @@ Unfortunately for you, that also means You. Using all kinds of ghostly armanents
 - Game created in Godot Engine
 
 !!! THIS IS NOT A COMMERCIAL RELEASE !!!
-Credit for the assets and sprites goes to Kenney (https://www.kenney.nl/)
-Credit for the background goes to Cainos (https://cainos.itch.io/)
+Credit for the assets and sprites goes to Kenney (https://www.kenney.nl/). Credit for the background and decoration assets goes to Cainos (https://cainos.itch.io/).
